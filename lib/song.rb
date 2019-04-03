@@ -38,7 +38,7 @@ class Song
     #   if song.name == name
     #     return song
     #   else
-    #     nil
+    #     false
     #   end
     # end
   end
@@ -60,8 +60,6 @@ class Song
     song.name = song_title
     song.artist_name = artist
     song
-    
-    
   end
   
   def self.create_from_filename(filename)
@@ -72,7 +70,6 @@ class Song
     song.name = song_title
     song.artist_name = artist
     song
-    
   end
   
   def self.destroy_all
