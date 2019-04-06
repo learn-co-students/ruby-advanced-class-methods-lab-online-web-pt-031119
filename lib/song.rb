@@ -38,10 +38,35 @@ class Song
 end
 
   def Song.find_or_create_by_name (song)
-      if Song.find_by_name(song).name == song
-        song
-      else
+      find = Song.find_by_name (song)
+      if find.nil?
         Song.create_by_name (song)
+      else
+        find
       end
+end
+
+  def Song.alphabetical
+    @@all.sort_by do |song|
+      song.name
+    end
+  end
+
+def Song.new_from_filename (file)
+  lenght = file.size
+  file [lenght -4, lenght] = ""
+  array = file.split(" - ")
+  song = self.new
+  song.name = array[1]
+  song.artist_name = array[0]
+  song
+end
+
+def Song.create_from_filename (file)
+  @@all << Song.new_from_filename(file)
+end
+
+def Song.destroy_all
+  @@all.clear
 end
 end
