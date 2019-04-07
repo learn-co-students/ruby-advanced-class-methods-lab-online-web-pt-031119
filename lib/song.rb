@@ -20,6 +20,7 @@ class Song
   def self.new_by_name(name)
     song = self.new
     song.name = name
+<<<<<<< HEAD
     song
   end
 
@@ -66,4 +67,12 @@ class Song
   def self.destroy_all
     @@all.clear
   end
+=======
+  end
+
+  def self.find_or_create_by_name(name)
+    @@all.find{|song| song.name == name}
+  end
+
+>>>>>>> 2251da8f3930f87bac54a5a7f5634d6f1c8f79b1
 end
